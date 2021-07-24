@@ -1,7 +1,6 @@
 var username
 var data
 
-
 var sname =  document.querySelector("#name");
 var company =  document.querySelector("#company");
 var bio =  document.querySelector("#bio");
@@ -18,18 +17,18 @@ innerMain.style.display = "none"
 
 btn.addEventListener('click', function()
 {
-    username = document.getElementById("username").value
-    console.log(username)
-
+    username = ("https://api.github.com/users/" + document.getElementById("username").value)
     
-    if(username.startsWith("https://api.github.com/users/"))
+    if(username ==="https://api.github.com/users/")
+    {
+        alert("Please enter username")
+    }
+    else
     {
         
-    
         fetch(username)
             .then(function(data)
             {
-                console.log("sssx")
                 return data.json()
             })
             .then(function(res)
@@ -54,10 +53,6 @@ btn.addEventListener('click', function()
                 }
                
             })
-    }
-    else
-    {
-        alert("try this ->  https://api.github.com/users/RizwanJamal ")
     }
 })
 
